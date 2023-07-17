@@ -3,7 +3,7 @@ pragma solidity ^0.8.18;
 
 import {Script} from "forge-std/Script.sol";
 
-contract HelperConfig{
+contract HelperConfig is Script{
  /*
  *Deploy mocks when we are on a local chain 
  *Keep track of contract addresses accross different chains
@@ -26,7 +26,14 @@ contract HelperConfig{
         NetworkConfig memory sepoliaConfig = NetworkConfig({priceFeed: 0x694AA1769357215DE4FAC081bf1f309aDC325306});
         return sepoliaConfig;
     }
-    function getAnvilEthConfig() public pure returns(NetworkConfig memory) {
+    function getAnvilEthConfig() public returns(NetworkConfig memory) {
         //price feed address
+        /*
+        *Deploy mocks
+        *Return the mock address 
+        */
+       vm.startBroadcast(); 
+       
+       vm.stopBroadcast();
     }
 }
