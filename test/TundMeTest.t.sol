@@ -68,6 +68,8 @@ contract FundMeTest is Test{
 
     function testWithdrawWithASingleFunder() public funded {
         //Arrange
+        uint startingOwnerBalance = fundMe.getOwner().balance;
+        uint startingFundMeBalance = address(fundMe).balance;
         //Act
         //Assert 
     }

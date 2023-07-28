@@ -106,4 +106,8 @@ function getPriceFeed() external view returns(AggregatorV3Interface) {
     return s_priceFeed;
 }
 
+function getOwner() external view returns (address) {
+    return i_owner;
+}
+
 }
