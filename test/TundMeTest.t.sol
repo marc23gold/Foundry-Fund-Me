@@ -68,10 +68,20 @@ contract FundMeTest is Test{
 
     function testWithdrawWithASingleFunder() public funded {
         //Arrange
-        uint startingOwnerBalance = fundMe.getOwner().balance;
-        uint startingFundMeBalance = address(fundMe).balance;
+        uint startingOwnerBalance = fundMe.getOwner().balance; //getting of who ever deploys the contract
+        uint startingFundMeBalance = address(fundMe).balance; // getting the balance of the balance
         //Act
+        vm.prank(fundMe.getOwner()); //making the next tx be sent by the owner
+        fundMe.withdraw(); //withdrawing the funds
         //Assert 
+        uint endingOwnerBalance = fundMe.getOwner().balance; //making the ending balance of the 
+        uint endingFundMeBalance = address(fundMe).balance;
+        assertEq(endingFundMeBalance, 0);
+        assertEq(startingFundMeBalance + startingOwnerBalance, endingOwnerBalance);
+    }
+
+    function testWithdrawFromMultipleFunders() public funded {
+        
     }
 
 }
