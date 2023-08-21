@@ -81,7 +81,11 @@ contract FundMeTest is Test{
     }
 
     function testWithdrawFromMultipleFunders() public funded {
-        
+        uint numberOfFunders = 10;
+        uint startingFunderIndex = 2;
+        for(uint i = 0; i < numberOfFunders; i++) {
+            
+        }
     }
 
 }
